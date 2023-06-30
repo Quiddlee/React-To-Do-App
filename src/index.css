@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Google Sans";
+  src: url("//fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIKln.woff2"),
+  url("//fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIKln.woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #ff6a55;
+  --color-secondary: #fdf6f4;
+  --color-tertiary: #fefcfd;
+
+  --color-text-dark: #010101;
+  --color-text-light: #fff3ee;
+  --color-text-lightest: #fff2ec;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-grey-light: #cdcdcd;
+
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /*@media only screen and (max-width: $bp-largest) {*/
+  /*}*/
+}
+
+body {
+  font-family: Google Sans, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+  box-sizing: border-box;
+  color: var(--color-text-dark);
+  background-color: var(--color-secondary);
+}
