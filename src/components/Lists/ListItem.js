@@ -6,8 +6,10 @@ export default function ListItem({
   openedList,
 }) {
   return (
-    <li onClick={() => onOpenList(id)} className="item">
-      <article className={`heading ${id === openedList ? 'active' : ''}`}>
+    <li className="item">
+      <article
+        onClick={() => onOpenList(id)}
+        className={`heading ${id === openedList ? 'active' : ''}`}>
         {title}
         <span className="heading__num-of-todos">{todos.length}</span>
         <button className="button title heading__more-btn">...</button>
