@@ -63,6 +63,10 @@ body {
 }
 
 .button--add {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  fill: var(--color-grey-light);;
   color: var(--color-grey-light);
 }
 
@@ -214,6 +218,6 @@ body {
 
   .add-list-item {
     justify-self: start;
-    margin: 1rem 4.2rem;
+    margin: 1rem 3.7rem;
   }
 }

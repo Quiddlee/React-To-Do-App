@@ -10,7 +10,7 @@ function App() {
       <main className="main">
         <Form />
         <Lists />
-        <ButtonAdd customClass="add-list-item">+ List item</ButtonAdd>
+        <ButtonAdd customClass="add-list-item">List item</ButtonAdd>
       </main>
     </div>
   );
