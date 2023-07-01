@@ -20,6 +20,10 @@
 
 }
 
+::selection {
+  background-color: var(--color-primary);
+}
+
 *,
 *::after,
 *::before {
