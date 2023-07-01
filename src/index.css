@@ -12,8 +12,7 @@
   --color-tertiary: #fefcfd;
 
   --color-text-dark: #010101;
-  --color-text-light: #fff3ee;
-  --color-text-lightest: #fff2ec;
+  --color-text-light: #FFF2ED;
 
   --color-black: #000;
   --color-white: #fff;
@@ -43,4 +42,122 @@ body {
   box-sizing: border-box;
   color: var(--color-text-dark);
   background-color: var(--color-secondary);
+
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.title {
+  font-size: 2rem;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.form {
+}
+
+.input,
+.item {
+  border-radius: 1.5rem;
+  padding: 2rem 3rem;
+  min-height: 7.2rem;
+}
+
+.app {
+  display: grid;
+  row-gap: 2rem;
+  margin: 0 auto;
+  min-width: 40dvw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+
+  .header__title {
+  }
+
+  .header__icon,
+  .sort-icon {
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  row-gap: 1.2rem;
+
+  .form-add-todo {
+    position: relative;
+
+    .form-add-todo__btn,
+    .input {
+
+    }
+
+    .input {
+      border: none;
+
+      width: 100%;
+      outline: none;
+
+      &::placeholder {
+        color: var(--color-grey-light);
+      }
+    }
+
+    .form-add-todo__btn {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      right: 3.1rem;
+      color: var(--color-grey-light);
+    }
+  }
+
+  .lists {
+    display: grid;
+    row-gap: inherit;
+
+    .item {
+      display: flex;
+      background-color: var(--color-tertiary);
+      list-style: none;
+
+      .item__num-of-todos {
+        color: var(--color-grey-light);
+        font-weight: 400;
+        margin-left: 2rem;
+      }
+
+      .item__more-btn {
+        align-self: start;
+        margin-left: auto;
+        font-size: 3.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    .active {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+
+      .item__num-of-todos {
+        color: inherit;
+      }
+    }
+  }
+}
+
