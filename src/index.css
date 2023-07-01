@@ -62,6 +62,10 @@ body {
   color: inherit;
 }
 
+.button--add {
+  color: var(--color-grey-light);
+}
+
 .form {
 }
 
@@ -123,7 +127,6 @@ body {
       top: 50%;
       translate: 0 -50%;
       right: 3.1rem;
-      color: var(--color-grey-light);
     }
   }
 
@@ -166,7 +169,7 @@ body {
     .todo-list {
       display: grid;
       gap: 1rem;
-      padding: 2rem 3rem;
+      padding: 2rem 3rem 0 3rem;
 
       .todo-list__item {
         display: flex;
@@ -207,5 +210,10 @@ body {
         }
       }
     }
+  }
+
+  .add-list-item {
+    justify-self: start;
+    margin: 1rem 4.2rem;
   }
 }
