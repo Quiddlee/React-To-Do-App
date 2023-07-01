@@ -1,21 +1,11 @@
 import ListItem from './ListItem';
 
-export default function Lists() {
+export default function Lists({ lists }) {
   return (
     <ul className="lists title">
-      <ListItem
-        data={{
-          id: 0,
-          title: 'To-do',
-          todos: ['test', 'Banana', 'Blueberries', 'hello'],
-        }}></ListItem>
-
-      <ListItem
-        data={{
-          id: 1,
-          title: 'Shopping list',
-          todos: ['Bread', 'Banana', 'Blueberries'],
-        }}></ListItem>
+      {lists.map((list) => (
+        <ListItem data={list} />
+      ))}
     </ul>
   );
 }
