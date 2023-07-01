@@ -145,6 +145,7 @@ body {
     .item {
       display: grid;
       list-style: none;
+      cursor: pointer;
 
       .heading {
         display: flex;
