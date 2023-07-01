@@ -66,7 +66,7 @@ body {
 }
 
 .input,
-.item {
+.heading {
   border-radius: 1.5rem;
   padding: 2rem 3rem;
   min-height: 7.2rem;
@@ -132,30 +132,42 @@ body {
     row-gap: inherit;
 
     .item {
-      display: flex;
-      background-color: var(--color-tertiary);
+      display: grid;
       list-style: none;
 
-      .item__num-of-todos {
-        color: var(--color-grey-light);
-        font-weight: 400;
-        margin-left: 2rem;
+      .heading {
+        display: flex;
+        background-color: var(--color-tertiary);
+
+        .heading__num-of-todos {
+          color: var(--color-grey-light);
+          font-weight: 400;
+          margin-left: 2rem;
+        }
+
+        .heading__more-btn {
+          align-self: start;
+          margin-left: auto;
+          font-size: 3.5rem;
+          line-height: 1.5rem;
+        }
       }
 
-      .item__more-btn {
-        align-self: start;
-        margin-left: auto;
-        font-size: 3.5rem;
-        line-height: 1.5rem;
+      .active {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+
+        .heading__num-of-todos {
+          color: inherit;
+        }
       }
     }
 
-    .active {
-      background-color: var(--color-primary);
-      color: var(--color-text-light);
+    .todo-list {
+      padding: 2rem 4rem;
 
-      .item__num-of-todos {
-        color: inherit;
+      .todo-list__item {
+        font-weight: 400;
       }
     }
   }
