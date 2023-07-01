@@ -164,12 +164,48 @@ body {
     }
 
     .todo-list {
-      padding: 2rem 4rem;
+      display: grid;
+      gap: 1rem;
+      padding: 2rem 3rem;
 
       .todo-list__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
         font-weight: 400;
+        list-style: none;
+      }
+
+      .todo-list__btn {
+        max-height: 3.8rem;
+      }
+
+
+      .todo-list__icon,
+      .todo-list__icon--done {
+        border-radius: 10rem;
+      }
+
+      .todo-list__icon {
+        fill: none;
+        border: .3rem solid var(--color-grey-light);
+      }
+
+      .todo-list__icon--done {
+        border: none;
+
+        .todo-list__icon__body {
+          fill: var(--color-black);
+        }
+
+        .todo-list__icon__small-rect {
+          fill: var(--color-white);
+        }
+
+        .todo-list__icon__large-rect {
+          fill: var(--color-white);
+        }
       }
     }
   }
 }
-

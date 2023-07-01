@@ -1,4 +1,4 @@
-import TodoList from './TodoList';
+import TodoList from './TodoList/TodoList';
 
 export default function ListItem({ data: { id, title, todos } }) {
   return (
