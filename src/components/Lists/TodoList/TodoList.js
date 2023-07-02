@@ -1,16 +1,33 @@
 import TodoListItem from './TodoListItem';
 import ButtonAdd from '../../ButtonAdd';
 
-export default function TodoList({ todos }) {
+export default function TodoList({
+  todos,
+  onAddTodoItem,
+  currListId,
+  onEditTodo,
+  listId,
+}) {
   return (
     <>
       <ul className="todo-list">
-        {todos.map((todo) => (
-          <TodoListItem key={todo}>{todo}</TodoListItem>
+        {todos.map(({ content, id }, i) => (
+          <TodoListItem
+            key={i}
+            onEditTodo={onEditTodo}
+            todoId={id}
+            listId={listId}>
+            {content}
+          </TodoListItem>
         ))}
       </ul>
 
-      <ButtonAdd customClass="add-list-item">List item</ButtonAdd>
+      <ButtonAdd
+        onAddTodoItem={onAddTodoItem}
+        customClass="add-list-item"
+        currListId={currListId}>
+        List item
+      </ButtonAdd>
     </>
   );
 }

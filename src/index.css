@@ -114,11 +114,6 @@ body {
   .form-add-todo {
     position: relative;
 
-    .form-add-todo__btn,
-    .input {
-
-    }
-
     .input {
       border: none;
 
@@ -181,11 +176,26 @@ body {
       padding: 2rem 3rem 0 3rem;
 
       .todo-list__item {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 1rem;
         font-weight: 400;
         list-style: none;
+
+        .todo-list__item__edit {
+          position: absolute;
+          left: 4.8rem;
+          border: none;
+          background-color: inherit;
+          font: inherit;
+          outline: none;
+
+          &::placeholder {
+            color: var(--color-grey-light);
+            font-weight: 600;
+          }
+        }
       }
 
       .todo-list__btn {

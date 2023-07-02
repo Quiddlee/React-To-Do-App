@@ -1,7 +1,7 @@
 import ListItem from './ListItem';
 import { useState } from 'react';
 
-export default function Lists({ lists }) {
+export default function Lists({ lists, onAddTodoItem, onEditTodo }) {
   const [openedList, setOpenedList] = useState(null);
 
   function handleOpenList(id) {
@@ -17,6 +17,8 @@ export default function Lists({ lists }) {
           openedList={openedList}
           onOpenList={handleOpenList}
           listData={listData}
+          onAddTodoItem={onAddTodoItem}
+          onEditTodo={onEditTodo}
         />
       ))}
     </ul>

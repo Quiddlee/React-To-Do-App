@@ -11,12 +11,44 @@ function App() {
     setLists((lists) => [...lists, newList]);
   }
 
+  function handleAddTodoItem(listId, newTodoItem) {
+    setLists((lists) => {
+      const newLists = structuredClone(lists);
+
+      newLists.forEach(
+        (list) => list.id === listId && list.todos.push(newTodoItem),
+      );
+
+      return newLists;
+    });
+  }
+
+  function handleEditTodo(listId, todoId, newTodoContent) {
+    setLists((lists) => {
+      const newLists = structuredClone(lists);
+
+      newLists.forEach((list) => {
+        if (list.id !== listId) return;
+
+        list.todos.forEach((todo) => {
+          if (todo.id === todoId) todo.content = newTodoContent;
+        });
+      });
+
+      return newLists;
+    });
+  }
+
   return (
     <div className="app">
       <Header />
       <main className="main">
         <Form onAddList={handleAddList} />
-        <Lists lists={lists} />
+        <Lists
+          lists={lists}
+          onAddTodoItem={handleAddTodoItem}
+          onEditTodo={handleEditTodo}
+        />
       </main>
     </div>
   );

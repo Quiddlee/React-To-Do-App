@@ -4,6 +4,8 @@ export default function ListItem({
   listData: { id, title, todos },
   onOpenList,
   openedList,
+  onAddTodoItem,
+  onEditTodo,
 }) {
   return (
     <li className="item">
@@ -15,7 +17,15 @@ export default function ListItem({
         <button className="button title heading__more-btn">...</button>
       </article>
 
-      {id === openedList && <TodoList todos={todos} />}
+      {id === openedList && (
+        <TodoList
+          todos={todos}
+          onAddTodoItem={onAddTodoItem}
+          currListId={id}
+          onEditTodo={onEditTodo}
+          listId={id}
+        />
+      )}
     </li>
   );
 }

@@ -1,6 +1,16 @@
-export default function ButtonAdd({ customClass = '', children }) {
+export default function ButtonAdd({
+  customClass = '',
+  onAddTodoItem,
+  children,
+  currListId,
+}) {
   return (
-    <button className={`button title button--add ${customClass}`}>
+    <button
+      onClick={() =>
+        onAddTodoItem &&
+        onAddTodoItem(currListId, { id: crypto.randomUUID(), content: '' })
+      }
+      className={`button title button--add ${customClass}`}>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
