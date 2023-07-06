@@ -183,6 +183,10 @@ body {
         font-weight: 400;
         list-style: none;
 
+        .todo-list__item__delete {
+          margin-left: auto;
+        }
+
         .todo-list__item__edit {
           position: absolute;
           left: 4.8rem;
@@ -201,7 +205,6 @@ body {
       .todo-list__btn {
         max-height: 3.8rem;
       }
-
 
       .todo-list__icon,
       .todo-list__icon--done {

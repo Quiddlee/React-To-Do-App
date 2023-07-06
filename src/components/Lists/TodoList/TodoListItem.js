@@ -7,6 +7,7 @@ export default function TodoListItem({
   onEditTodo,
   todoId,
   listId,
+  onDeleteTodoItem,
 }) {
   const [todoContent, setTodoContent] = useState(children);
 
@@ -22,6 +23,11 @@ export default function TodoListItem({
         className="todo-list__item__edit"
         type="text"
       />
+      <button
+        onClick={() => onDeleteTodoItem(listId, todoId)}
+        className="button title todo-list__item__delete">
+        -
+      </button>
     </li>
   );
 }

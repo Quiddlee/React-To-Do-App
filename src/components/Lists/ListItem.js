@@ -6,6 +6,7 @@ export default function ListItem({
   openedList,
   onAddTodoItem,
   onEditTodo,
+  onDeleteTodoItem,
 }) {
   return (
     <li className="item">
@@ -24,6 +25,7 @@ export default function ListItem({
           currListId={id}
           onEditTodo={onEditTodo}
           listId={id}
+          onDeleteTodoItem={onDeleteTodoItem}
         />
       )}
     </li>

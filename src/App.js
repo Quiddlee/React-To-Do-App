@@ -39,6 +39,19 @@ function App() {
     });
   }
 
+  function handleDeleteTodoItem(listId, todoId) {
+    setLists((lists) => {
+      const newLists = structuredClone(lists);
+
+      newLists.forEach((list) => {
+        if (list.id === listId)
+          list.todos = list.todos.filter((todo) => todo.id !== todoId);
+      });
+
+      return newLists;
+    });
+  }
+
   return (
     <div className="app">
       <Header />
@@ -48,6 +61,7 @@ function App() {
           lists={lists}
           onAddTodoItem={handleAddTodoItem}
           onEditTodo={handleEditTodo}
+          onDeleteTodoItem={handleDeleteTodoItem}
         />
       </main>
     </div>

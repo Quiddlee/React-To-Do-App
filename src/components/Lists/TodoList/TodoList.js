@@ -7,16 +7,19 @@ export default function TodoList({
   currListId,
   onEditTodo,
   listId,
+  onDeleteTodoItem,
 }) {
+  console.log('todos', todos);
   return (
     <>
       <ul className="todo-list">
-        {todos.map(({ content, id }, i) => (
+        {todos.map(({ content, id }) => (
           <TodoListItem
-            key={i}
+            key={id}
             onEditTodo={onEditTodo}
             todoId={id}
-            listId={listId}>
+            listId={listId}
+            onDeleteTodoItem={onDeleteTodoItem}>
             {content}
           </TodoListItem>
         ))}
