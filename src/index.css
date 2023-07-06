@@ -213,6 +213,7 @@ body {
         gap: 1rem;
         font-weight: 400;
         list-style: none;
+        cursor: auto;
 
         .todo-list__item__delete {
           margin-left: auto;

@@ -12,10 +12,16 @@ export default function ListItem({
   onMarkDoneTodo,
   onOpenCloseDialog,
   openedDialogId,
+  onDeleteList,
 }) {
   function validateOpenCloseDialog(e, id) {
     e.stopPropagation();
     onOpenCloseDialog(id);
+  }
+
+  function validateDeleteList(e, id) {
+    e.stopPropagation();
+    onDeleteList(id);
   }
 
   return (
@@ -24,7 +30,9 @@ export default function ListItem({
         onClick={() => onOpenList(id)}
         className={`heading ${id === openedList ? 'active' : ''}`}>
         {title}
+
         <span className="heading__num-of-todos">{todos.length}</span>
+
         <Button
           className="heading__more-btn"
           onClick={(e) => validateOpenCloseDialog(e, id)}>
@@ -34,7 +42,11 @@ export default function ListItem({
         {openedDialogId === id ? (
           <Dialog>
             <Button className="dialog__option">Edit</Button>
-            <Button className="dialog__option">Delete</Button>
+            <Button
+              className="dialog__option"
+              onClick={(e) => validateDeleteList(e, id)}>
+              Delete
+            </Button>
           </Dialog>
         ) : (
           ''

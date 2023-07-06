@@ -67,6 +67,13 @@ function App() {
     });
   }
 
+  function handleDeleteList(listId) {
+    setLists((lists) => {
+      const newLists = structuredClone(lists);
+      return newLists.filter((li) => li.id !== listId);
+    });
+  }
+
   return (
     <div className="app">
       <Header />
@@ -78,6 +85,7 @@ function App() {
           onEditTodo={handleEditTodo}
           onDeleteTodoItem={handleDeleteTodoItem}
           onMarkDoneTodo={handleMarkDoneTodo}
+          onDeleteList={handleDeleteList}
         />
       </main>
     </div>
