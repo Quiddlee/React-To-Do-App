@@ -8,6 +8,7 @@ export default function Lists({
   onDeleteTodoItem,
   onMarkDoneTodo,
   onDeleteList,
+  onEditListTitle,
 }) {
   const [openedList, setOpenedList] = useState(null);
   const [openedDialog, setOpenedDialog] = useState(null);
@@ -38,6 +39,7 @@ export default function Lists({
           onOpenCloseDialog={handleOpenCloseDialog}
           openedDialogId={openedDialog}
           onDeleteList={onDeleteList}
+          onEditListTitle={onEditListTitle}
         />
       ))}
     </ul>

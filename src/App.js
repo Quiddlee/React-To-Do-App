@@ -74,19 +74,38 @@ function App() {
     });
   }
 
+  function handleEditListTitle(listId, newTitle) {
+    setLists((lists) => {
+      const newLists = structuredClone(lists);
+
+      newLists.forEach((li) => {
+        if (li.id === listId) li.title = newTitle;
+      });
+
+      return newLists;
+    });
+  }
+
   return (
     <div className="app">
       <Header />
       <main className="main">
         <Form onAddList={handleAddList} />
-        <Lists
-          lists={lists}
-          onAddTodoItem={handleAddTodoItem}
-          onEditTodo={handleEditTodo}
-          onDeleteTodoItem={handleDeleteTodoItem}
-          onMarkDoneTodo={handleMarkDoneTodo}
-          onDeleteList={handleDeleteList}
-        />
+        {lists.length ? (
+          <Lists
+            lists={lists}
+            onAddTodoItem={handleAddTodoItem}
+            onEditTodo={handleEditTodo}
+            onDeleteTodoItem={handleDeleteTodoItem}
+            onMarkDoneTodo={handleMarkDoneTodo}
+            onDeleteList={handleDeleteList}
+            onEditListTitle={handleEditListTitle}
+          />
+        ) : (
+          <p className="title empty-list">
+            The list is empty, add some to-do :)
+          </p>
+        )}
       </main>
     </div>
   );

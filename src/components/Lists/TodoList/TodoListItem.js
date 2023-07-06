@@ -28,12 +28,13 @@ export default function TodoListItem({
       />
       {isDone ? <s>{todoContent}</s> : todoContent}
       <input
+        style={{ width: `${todoContent.length || 13}ch` }}
         onKeyDown={handleEnterKeyDown}
         placeholder="Write some todo..."
         onBlur={() => onEditTodo(listId, todoId, todoContent)}
         onChange={(e) => setTodoContent(e.target.value)}
         value={todoContent}
-        className="todo-list__item__edit"
+        className="todo-list__item__edit input-placeholder"
         type="text"
       />
       <Button

@@ -1,6 +1,7 @@
 import TodoList from './TodoList/TodoList';
 import Button from '../utils/Button';
 import Dialog from '../utils/Dialog';
+import { useState } from 'react';
 
 export default function ListItem({
   listData: { id, title, todos },
@@ -13,7 +14,10 @@ export default function ListItem({
   onOpenCloseDialog,
   openedDialogId,
   onDeleteList,
+  onEditListTitle,
 }) {
+  const [listTitle, setListTitle] = useState(title);
+
   function validateOpenCloseDialog(e, id) {
     e.stopPropagation();
     onOpenCloseDialog(id);
@@ -24,12 +28,27 @@ export default function ListItem({
     onDeleteList(id);
   }
 
+  function handleEnterKeyDown(e) {
+    if (e.key !== 'Enter') return;
+    e.target.blur();
+  }
+
   return (
     <li className="item">
       <article
         onClick={() => onOpenList(id)}
         className={`heading ${id === openedList ? 'active' : ''}`}>
-        {title}
+        <input
+          style={{ width: `${listTitle.length || 15}ch` }}
+          placeholder="Write some list title..."
+          onKeyDown={handleEnterKeyDown}
+          onBlur={() => onEditListTitle(id, listTitle)}
+          onClick={(e) => e.stopPropagation()}
+          value={listTitle}
+          onChange={(e) => setListTitle(e.target.value)}
+          type="text"
+          className="item__edit-title input-placeholder"
+        />
 
         <span className="heading__num-of-todos">{todos.length}</span>
 
@@ -41,7 +60,6 @@ export default function ListItem({
 
         {openedDialogId === id ? (
           <Dialog>
-            <Button className="dialog__option">Edit</Button>
             <Button
               className="dialog__option"
               onClick={(e) => validateDeleteList(e, id)}>
