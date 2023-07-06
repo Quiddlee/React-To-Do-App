@@ -8,12 +8,18 @@ export default function TodoListItem({
   todoId,
   listId,
   onDeleteTodoItem,
+  onMarkDoneTodo,
 }) {
   const [todoContent, setTodoContent] = useState(children);
 
   return (
     <li className="todo-list__item">
-      <TodoListItemBtn />
+      <TodoListItemBtn
+        onMarkDoneTodo={onMarkDoneTodo}
+        isDone={isDone}
+        listId={listId}
+        todoId={todoId}
+      />
       {isDone ? <s>{todoContent}</s> : todoContent}
       <input
         placeholder="Write some todo..."

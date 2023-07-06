@@ -1,6 +1,13 @@
-export default function TodoListItemBtn({ isDone }) {
+export default function TodoListItemBtn({
+  isDone,
+  onMarkDoneTodo,
+  listId,
+  todoId,
+}) {
   return (
-    <button className="button todo-list__btn">
+    <button
+      onClick={() => onMarkDoneTodo(listId, todoId)}
+      className="button todo-list__btn">
       <svg
         className={`${isDone ? 'todo-list__icon--done' : 'todo-list__icon'}`}
         width="38"

@@ -8,18 +8,20 @@ export default function TodoList({
   onEditTodo,
   listId,
   onDeleteTodoItem,
+  onMarkDoneTodo,
 }) {
-  console.log('todos', todos);
   return (
     <>
       <ul className="todo-list">
-        {todos.map(({ content, id }) => (
+        {todos.map(({ content, id, isDone }) => (
           <TodoListItem
             key={id}
             onEditTodo={onEditTodo}
             todoId={id}
             listId={listId}
-            onDeleteTodoItem={onDeleteTodoItem}>
+            onDeleteTodoItem={onDeleteTodoItem}
+            isDone={isDone}
+            onMarkDoneTodo={onMarkDoneTodo}>
             {content}
           </TodoListItem>
         ))}

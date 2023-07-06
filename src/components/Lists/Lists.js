@@ -6,6 +6,7 @@ export default function Lists({
   onAddTodoItem,
   onEditTodo,
   onDeleteTodoItem,
+  onMarkDoneTodo,
 }) {
   const [openedList, setOpenedList] = useState(null);
 
@@ -25,6 +26,7 @@ export default function Lists({
           onAddTodoItem={onAddTodoItem}
           onEditTodo={onEditTodo}
           onDeleteTodoItem={onDeleteTodoItem}
+          onMarkDoneTodo={onMarkDoneTodo}
         />
       ))}
     </ul>

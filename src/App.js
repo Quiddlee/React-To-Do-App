@@ -52,6 +52,21 @@ function App() {
     });
   }
 
+  function handleMarkDoneTodo(listId, todoId) {
+    setLists((lists) => {
+      const newLists = structuredClone(lists);
+
+      newLists.forEach((list) => {
+        if (list.id !== listId) return;
+
+        const currTodo = list.todos.find((todo) => todo.id === todoId);
+        currTodo.isDone = !currTodo.isDone;
+      });
+
+      return newLists;
+    });
+  }
+
   return (
     <div className="app">
       <Header />
@@ -62,6 +77,7 @@ function App() {
           onAddTodoItem={handleAddTodoItem}
           onEditTodo={handleEditTodo}
           onDeleteTodoItem={handleDeleteTodoItem}
+          onMarkDoneTodo={handleMarkDoneTodo}
         />
       </main>
     </div>
