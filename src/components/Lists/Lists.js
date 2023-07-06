@@ -9,10 +9,17 @@ export default function Lists({
   onMarkDoneTodo,
 }) {
   const [openedList, setOpenedList] = useState(null);
+  const [openedDialog, setOpenedDialog] = useState(null);
 
   function handleOpenList(id) {
+    setOpenedDialog(null);
     if (openedList === id) return setOpenedList(null);
     setOpenedList(id);
+  }
+
+  function handleOpenCloseDialog(id) {
+    if (id === openedDialog) return setOpenedDialog(null);
+    setOpenedDialog(id);
   }
 
   return (
@@ -27,6 +34,8 @@ export default function Lists({
           onEditTodo={onEditTodo}
           onDeleteTodoItem={onDeleteTodoItem}
           onMarkDoneTodo={onMarkDoneTodo}
+          onOpenCloseDialog={handleOpenCloseDialog}
+          openedDialogId={openedDialog}
         />
       ))}
     </ul>

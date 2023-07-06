@@ -1,4 +1,6 @@
 import TodoList from './TodoList/TodoList';
+import Button from '../utils/Button';
+import Dialog from '../utils/Dialog';
 
 export default function ListItem({
   listData: { id, title, todos },
@@ -8,7 +10,14 @@ export default function ListItem({
   onEditTodo,
   onDeleteTodoItem,
   onMarkDoneTodo,
+  onOpenCloseDialog,
+  openedDialogId,
 }) {
+  function validateOpenCloseDialog(e, id) {
+    e.stopPropagation();
+    onOpenCloseDialog(id);
+  }
+
   return (
     <li className="item">
       <article
@@ -16,7 +25,20 @@ export default function ListItem({
         className={`heading ${id === openedList ? 'active' : ''}`}>
         {title}
         <span className="heading__num-of-todos">{todos.length}</span>
-        <button className="button title heading__more-btn">...</button>
+        <Button
+          className="heading__more-btn"
+          onClick={(e) => validateOpenCloseDialog(e, id)}>
+          ...
+        </Button>
+
+        {openedDialogId === id ? (
+          <Dialog>
+            <Button className="dialog__option">Edit</Button>
+            <Button className="dialog__option">Delete</Button>
+          </Dialog>
+        ) : (
+          ''
+        )}
       </article>
 
       {id === openedList && (

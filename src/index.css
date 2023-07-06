@@ -84,6 +84,30 @@ body {
   min-height: 7.2rem;
 }
 
+.dialog {
+  display: grid;
+  align-items: center;
+
+  color: var(--color-text-dark);
+  background-color: color-mix(in srgb, var(--color-secondary), #000 5%);
+
+  min-width: 12rem;
+
+  border-radius: 10rem;
+  overflow: hidden;
+
+  .dialog__option {
+    display: block;
+    font-size: 1.7rem;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      background-color: rgba(0,0,0,.1);
+    }
+  }
+}
+
 .app {
   display: grid;
   row-gap: 2rem;
@@ -143,8 +167,15 @@ body {
       cursor: pointer;
 
       .heading {
+        position: relative;
         display: flex;
         background-color: var(--color-tertiary);
+
+        .dialog {
+          position: absolute;
+          top: 0;
+          right: -13rem;
+        }
 
         .heading__num-of-todos {
           color: var(--color-grey-light);

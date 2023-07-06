@@ -1,5 +1,6 @@
 import TodoListItemBtn from './TodoListItemBtn';
 import { useState } from 'react';
+import Button from '../../utils/Button';
 
 export default function TodoListItem({
   isDone,
@@ -12,6 +13,11 @@ export default function TodoListItem({
 }) {
   const [todoContent, setTodoContent] = useState(children);
 
+  function handleEnterKeyDown(e) {
+    if (e.key !== 'Enter') return;
+    e.target.blur();
+  }
+
   return (
     <li className="todo-list__item">
       <TodoListItemBtn
@@ -22,6 +28,7 @@ export default function TodoListItem({
       />
       {isDone ? <s>{todoContent}</s> : todoContent}
       <input
+        onKeyDown={handleEnterKeyDown}
         placeholder="Write some todo..."
         onBlur={() => onEditTodo(listId, todoId, todoContent)}
         onChange={(e) => setTodoContent(e.target.value)}
@@ -29,11 +36,11 @@ export default function TodoListItem({
         className="todo-list__item__edit"
         type="text"
       />
-      <button
-        onClick={() => onDeleteTodoItem(listId, todoId)}
-        className="button title todo-list__item__delete">
+      <Button
+        className="todo-list__item__delete"
+        onClick={onDeleteTodoItem.bind(null, listId, todoId)}>
         -
-      </button>
+      </Button>
     </li>
   );
 }
