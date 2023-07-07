@@ -97,11 +97,10 @@ body {
 
 @keyframes checkmark-small-rect-fade-in {
   0% {
-    scale: 0;
+    height: 0;
   }
 
   100% {
-    scale: 1;
   }
 }
 
@@ -355,11 +354,18 @@ body {
         .todo-list__icon__small-rect {
           fill: var(--color-white);
           animation: checkmark-small-rect-fade-in .3s cubic-bezier(.21,.62,.34,1.28);
+          transition: .2s all cubic-bezier(.21, .62, .34, 1.68);
         }
 
         .todo-list__icon__large-rect {
           fill: var(--color-white);
           animation: checkmark-large-rect-fade-in .5s cubic-bezier(.21,.62,.34,1.48);
+          transition: .2s all cubic-bezier(.21, .62, .34, 1.68);
+        }
+
+        &:hover .todo-list__icon__large-rect {
+          translate: -2% 2%;
+          height: 40%;
         }
       }
     }
