@@ -26,7 +26,10 @@ export default function TodoListItem({
         listId={listId}
         todoId={todoId}
       />
-      {isDone ? <s>{todoContent}</s> : todoContent}
+
+      <span className={`todo-list__item__content ${isDone ? 'strike' : ''}`}>
+        {todoContent}
+      </span>
       <input
         style={{ width: `${todoContent.length || 13}ch` }}
         onKeyDown={handleEnterKeyDown}

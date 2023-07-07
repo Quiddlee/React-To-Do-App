@@ -119,6 +119,46 @@ body {
   }
 }
 
+@keyframes strike-fade-in {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes strike-fade-out {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.strike {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+
+    position: absolute;
+    inset: 0;
+    margin: auto;
+
+    height: .2rem;
+    transform: scaleX(1);
+
+    background-color: black;
+    animation: strike-fade-in .3s cubic-bezier(.3,.18,.22,1.2);
+    transform-origin: left;
+  }
+}
+
 .hidden {
   opacity: 0;
   visibility: hidden;
@@ -326,6 +366,28 @@ body {
           font: inherit;
           outline: none;
         }
+
+        .todo-list__item__content {
+          position: relative;
+
+          &:not(.strike) {
+            &:before {
+              content: '';
+              display: block;
+
+              position: absolute;
+              inset: 0;
+              margin: auto;
+
+              height: .2rem;
+              transform: scaleX(0);
+
+              background-color: black;
+              animation: strike-fade-out .2s cubic-bezier(.15,.88,.21,.98);
+              transform-origin: left;
+            }
+          }
+        }
       }
 
       .todo-list__btn {
@@ -351,16 +413,18 @@ body {
           fill: var(--color-black);
         }
 
+        .todo-list__icon__large-rect {
+          transition: .2s all cubic-bezier(.21, .62, .34, 1.68);
+        }
+
         .todo-list__icon__small-rect {
           fill: var(--color-white);
           animation: checkmark-small-rect-fade-in .3s cubic-bezier(.21,.62,.34,1.28);
-          transition: .2s all cubic-bezier(.21, .62, .34, 1.68);
         }
 
         .todo-list__icon__large-rect {
           fill: var(--color-white);
           animation: checkmark-large-rect-fade-in .5s cubic-bezier(.21,.62,.34,1.48);
-          transition: .2s all cubic-bezier(.21, .62, .34, 1.68);
         }
 
         &:hover .todo-list__icon__large-rect {
