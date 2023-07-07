@@ -83,6 +83,18 @@ body {
   }
 }
 
+@keyframes checkmark-fade-out {
+  0% {
+    background-color: black;
+    scale: 0;
+  }
+
+  100% {
+    background-color: transparent;
+    scale: 1;
+  }
+}
+
 @keyframes checkmark-small-rect-fade-in {
   0% {
     scale: 0;
@@ -329,6 +341,7 @@ body {
       .todo-list__icon {
         fill: none;
         border: .3rem solid var(--color-grey-light);
+        animation: checkmark-fade-out .3s cubic-bezier(.21,.62,.34,1.28);
       }
 
       .todo-list__icon--done {
