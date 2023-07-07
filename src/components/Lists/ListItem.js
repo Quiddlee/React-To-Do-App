@@ -34,7 +34,18 @@ export default function ListItem({
   }
 
   return (
-    <li className="item">
+    <li className={`item ${id === openedList ? 'item--active' : ''}`}>
+      {openedDialogId === id ? (
+        <Dialog>
+          <Button
+            className="dialog__option"
+            onClick={(e) => validateDeleteList(e, id)}>
+            Delete
+          </Button>
+        </Dialog>
+      ) : (
+        ''
+      )}
       <article
         onClick={() => onOpenList(id)}
         className={`heading ${id === openedList ? 'active' : ''}`}>
@@ -57,31 +68,18 @@ export default function ListItem({
           onClick={(e) => validateOpenCloseDialog(e, id)}>
           ...
         </Button>
-
-        {openedDialogId === id ? (
-          <Dialog>
-            <Button
-              className="dialog__option"
-              onClick={(e) => validateDeleteList(e, id)}>
-              Delete
-            </Button>
-          </Dialog>
-        ) : (
-          ''
-        )}
       </article>
 
-      {id === openedList && (
-        <TodoList
-          todos={todos}
-          onAddTodoItem={onAddTodoItem}
-          currListId={id}
-          onEditTodo={onEditTodo}
-          listId={id}
-          onDeleteTodoItem={onDeleteTodoItem}
-          onMarkDoneTodo={onMarkDoneTodo}
-        />
-      )}
+      <TodoList
+        openedList={openedList}
+        todos={todos}
+        onAddTodoItem={onAddTodoItem}
+        currListId={id}
+        onEditTodo={onEditTodo}
+        listId={id}
+        onDeleteTodoItem={onDeleteTodoItem}
+        onMarkDoneTodo={onMarkDoneTodo}
+      />
     </li>
   );
 }

@@ -55,7 +55,12 @@ body {
 }
 
 .hidden {
+  opacity: 0;
   visibility: hidden;
+}
+
+.hidden--list {
+  position: fixed;
 }
 
 .title {
@@ -132,6 +137,13 @@ body {
   padding: 0 1rem;
 }
 
+.dialog {
+  position: absolute;
+  top: 0;
+  right: -13rem;
+  z-index: 10;
+}
+
 .main {
   display: grid;
   grid-template-columns: 100%;
@@ -173,8 +185,10 @@ body {
     .item {
       position: relative;
       display: grid;
+      grid-template-rows: .3fr 0fr 0fr;
       list-style: none;
       cursor: pointer;
+      transition: all .3s;
 
       .heading {
         position: relative;
@@ -188,12 +202,6 @@ body {
           background-color: inherit;
           color: inherit;
           outline: none;
-        }
-
-        .dialog {
-          position: absolute;
-          top: 0;
-          right: -13rem;
         }
 
         .heading__num-of-todos {
@@ -220,10 +228,16 @@ body {
       }
     }
 
+    .item--active {
+      grid-template-rows: .3fr 1fr .2fr;
+    }
+
     .todo-list {
       display: grid;
       gap: 1.5rem;
       padding: 2rem 3rem 0 3rem;
+      transition: opacity .1s, visibility .1s;
+      overflow: hidden;
 
       .todo-list__item {
         position: relative;

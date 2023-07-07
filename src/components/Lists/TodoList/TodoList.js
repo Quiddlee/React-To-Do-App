@@ -9,10 +9,14 @@ export default function TodoList({
   listId,
   onDeleteTodoItem,
   onMarkDoneTodo,
+  openedList,
 }) {
   return (
     <>
-      <ul className="todo-list">
+      <ul
+        className={`todo-list ${
+          openedList === listId ? '' : 'hidden hidden--list'
+        }`}>
         {todos.map(({ content, id, isDone }) => (
           <TodoListItem
             key={id}
@@ -28,6 +32,7 @@ export default function TodoList({
       </ul>
 
       <ButtonAdd
+        isOpen={openedList === listId}
         onAddTodoItem={onAddTodoItem}
         customClass="add-list-item"
         currListId={currListId}>

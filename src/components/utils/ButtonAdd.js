@@ -3,6 +3,7 @@ export default function ButtonAdd({
   onAddTodoItem,
   children,
   currListId,
+  isOpen,
 }) {
   return (
     <button
@@ -10,7 +11,9 @@ export default function ButtonAdd({
         onAddTodoItem &&
         onAddTodoItem(currListId, { id: crypto.randomUUID(), content: '' })
       }
-      className={`button title button--add ${customClass}`}>
+      className={`button title button--add ${customClass} ${
+        isOpen ? '' : 'hidden hidden--list'
+      }`}>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
