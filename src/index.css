@@ -54,6 +54,25 @@ body {
   justify-content: center;
 }
 
+@keyframes dialog-fade-in {
+  0% {
+    translate: -100%;
+    scale: 0;
+    transform: skew(-5deg, 5deg);
+  }
+
+  40% {
+    transform: skew(0deg);
+    translate: 5%;
+    scale: 1.03;
+  }
+
+  100% {
+    translate: 0;
+    scale: 1;
+  }
+}
+
 .hidden {
   opacity: 0;
   visibility: hidden;
@@ -101,6 +120,7 @@ body {
 .dialog {
   display: grid;
   align-items: center;
+  animation: dialog-fade-in .5s cubic-bezier(.09,.28,.11,1);
 
   color: var(--color-text-dark);
   background-color: color-mix(in srgb, var(--color-secondary), #000 5%);
