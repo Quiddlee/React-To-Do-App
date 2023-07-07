@@ -176,20 +176,19 @@ body {
       list-style: none;
       cursor: pointer;
 
-      .item__edit-title {
-        display: inline-block;
-        position: absolute;
-        font: inherit;
-        border: none;
-        background-color: inherit;
-        color: inherit;
-        outline: none;
-      }
-
       .heading {
         position: relative;
         display: flex;
         background-color: var(--color-tertiary);
+
+        .heading__edit-title {
+          display: inline-block;
+          font: inherit;
+          border: none;
+          background-color: inherit;
+          color: inherit;
+          outline: none;
+        }
 
         .dialog {
           position: absolute;

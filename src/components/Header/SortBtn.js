@@ -1,6 +1,7 @@
-export default function SortBtn() {
+export default function SortBtn({ onSortItems }) {
   return (
     <svg
+      onClick={onSortItems}
       className="sort-btn button"
       width="34"
       height="29"

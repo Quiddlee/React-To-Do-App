@@ -9,9 +9,17 @@ export default function Lists({
   onMarkDoneTodo,
   onDeleteList,
   onEditListTitle,
+  isSorted,
 }) {
   const [openedList, setOpenedList] = useState(null);
   const [openedDialog, setOpenedDialog] = useState(null);
+  let items;
+
+  if (isSorted) {
+    items = lists.toSorted((li1, li2) =>
+      li1.title.toLowerCase() > li2.title.toLowerCase() ? 1 : -1,
+    );
+  } else items = lists;
 
   function handleOpenList(id) {
     setOpenedDialog(null);
@@ -26,9 +34,9 @@ export default function Lists({
 
   return (
     <ul className="lists title">
-      {lists.map((listData, i) => (
+      {items.map((listData) => (
         <ListItem
-          key={i}
+          key={listData.id}
           openedList={openedList}
           onOpenList={handleOpenList}
           listData={listData}

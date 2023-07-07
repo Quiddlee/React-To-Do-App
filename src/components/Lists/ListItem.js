@@ -39,7 +39,7 @@ export default function ListItem({
         onClick={() => onOpenList(id)}
         className={`heading ${id === openedList ? 'active' : ''}`}>
         <input
-          style={{ width: `${listTitle.length || 15}ch` }}
+          style={{ width: `${listTitle.length}ch` }}
           placeholder="Write some list title..."
           onKeyDown={handleEnterKeyDown}
           onBlur={() => onEditListTitle(id, listTitle)}
@@ -47,7 +47,7 @@ export default function ListItem({
           value={listTitle}
           onChange={(e) => setListTitle(e.target.value)}
           type="text"
-          className="item__edit-title input-placeholder"
+          className="heading__edit-title input-placeholder"
         />
 
         <span className="heading__num-of-todos">{todos.length}</span>

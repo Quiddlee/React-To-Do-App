@@ -1,10 +1,10 @@
 import SortBtn from './SortBtn';
 
-export default function Header() {
+export default function Header({ onSortItems }) {
   return (
     <header className="header">
       <h1 className="header__title">Lists</h1>
-      <SortBtn></SortBtn>
+      <SortBtn onSortItems={onSortItems}></SortBtn>
     </header>
   );
 }

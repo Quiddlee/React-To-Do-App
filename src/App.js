@@ -6,6 +6,7 @@ import { INITIAL_LISTS } from './config';
 
 function App() {
   const [lists, setLists] = useState(INITIAL_LISTS);
+  const [isSorted, setIsSorted] = useState(false);
 
   function handleAddList(newList) {
     setLists((lists) => [...lists, newList]);
@@ -86,9 +87,13 @@ function App() {
     });
   }
 
+  function handleSortItems() {
+    setIsSorted(!isSorted);
+  }
+
   return (
     <div className="app">
-      <Header />
+      <Header isSorted={isSorted} onSortItems={handleSortItems} />
       <main className="main">
         <Form onAddList={handleAddList} />
         {lists.length ? (
@@ -100,6 +105,7 @@ function App() {
             onMarkDoneTodo={handleMarkDoneTodo}
             onDeleteList={handleDeleteList}
             onEditListTitle={handleEditListTitle}
+            isSorted={isSorted}
           />
         ) : (
           <p className="title empty-list">
