@@ -54,7 +54,7 @@ body {
   color: var(--color-text-dark);
   background-color: var(--color-secondary);
 
-  height: 120dvh;
+  padding-top: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
