@@ -212,6 +212,11 @@ body {
   }
 }
 
+.sort-btn {
+  width: 3.4rem;
+  height: 2.9rem;
+}
+
 .sort-btn--active .sort-btn__first-arrow {
   animation: sort-btn-click1 .3s;
 }
