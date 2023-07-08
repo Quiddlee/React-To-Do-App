@@ -54,7 +54,7 @@ body {
   color: var(--color-text-dark);
   background-color: var(--color-secondary);
 
-  height: 100dvh;
+  height: 120dvh;
   display: flex;
   align-items: center;
   justify-content: center;

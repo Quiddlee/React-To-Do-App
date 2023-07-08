@@ -7,6 +7,8 @@ export default function Form({ onAddList }) {
   function handleSubmitForm(e) {
     e.preventDefault();
 
+    if (listTitle === '') return;
+
     const newList = {
       id: crypto.randomUUID(),
       title: listTitle,
@@ -26,7 +28,9 @@ export default function Form({ onAddList }) {
         className="input title"
         type="text"
       />
-      <ButtonAdd customClass="form-add-todo__btn">Add</ButtonAdd>
+      <ButtonAdd isOpen={true} customClass="form-add-todo__btn">
+        Add
+      </ButtonAdd>
     </form>
   );
 }
