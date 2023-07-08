@@ -154,7 +154,7 @@ body {
     transform: scaleX(1);
 
     background-color: black;
-    animation: strike-fade-in .3s cubic-bezier(.3,.18,.22,1.2);
+    animation: strike-fade-in .2s cubic-bezier(.3,.18,.22,1.2);
     transform-origin: left;
   }
 }
@@ -291,7 +291,7 @@ body {
     .item {
       position: relative;
       display: grid;
-      grid-template-rows: .3fr 0fr 0fr;
+      grid-template-rows: 0fr 0fr 0fr;
       list-style: none;
       cursor: pointer;
       transition: all .3s cubic-bezier(.21,.62,.31,.92);
@@ -335,7 +335,7 @@ body {
     }
 
     .item--active {
-      grid-template-rows: .3fr 1fr .2fr;
+      grid-template-rows: 0fr 1fr 0fr;
     }
 
     .todo-list {
@@ -424,7 +424,7 @@ body {
 
         .todo-list__icon__large-rect {
           fill: var(--color-white);
-          animation: checkmark-large-rect-fade-in .5s cubic-bezier(.21,.62,.34,1.48);
+          animation: checkmark-large-rect-fade-in .45s cubic-bezier(.21,.62,.34,1.48);
         }
 
         &:hover .todo-list__icon__large-rect {
