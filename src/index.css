@@ -35,8 +35,14 @@
 
 html {
   font-size: 62.5%;
-  /*@media only screen and (max-width: $bp-largest) {*/
-  /*}*/
+
+  @media only screen and (max-width: 50em) {
+    font-size: 50%
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    font-size: 37.5%
+  }
 }
 
 body {
@@ -308,7 +314,15 @@ body {
   display: grid;
   row-gap: 2rem;
   margin: 0 auto;
-  min-width: 40dvw;
+  min-width: 60dvw;
+
+  @media only screen and (max-width: 50em) {
+    min-width: 70dvw;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    min-width: 90dvw;
+  }
 }
 
 .header {
