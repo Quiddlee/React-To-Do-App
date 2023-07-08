@@ -275,6 +275,11 @@ body {
   color: var(--color-grey-light);
 }
 
+.button--add__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
 .input-placeholder {
   &::placeholder {
     color: var(--color-grey-light);
@@ -303,6 +308,18 @@ body {
   border-radius: 10rem;
   overflow: hidden;
 
+  position: absolute;
+  top: 0;
+  right: -13rem;
+  z-index: 10;
+
+  transform-origin: right;
+
+  @media only screen and (max-width: 37.5em) {
+    right: 0;
+    top: -3rem;
+  }
+
   .dialog__option {
     display: block;
     font-size: 1.7rem;
@@ -319,7 +336,7 @@ body {
   display: grid;
   row-gap: 2rem;
   margin: 0 auto;
-  min-width: 60dvw;
+  min-width: 50dvw;
 
   @media only screen and (max-width: 50em) {
     min-width: 70dvw;
@@ -335,13 +352,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-}
-
-.dialog {
-  position: absolute;
-  top: 0;
-  right: -13rem;
-  z-index: 10;
 }
 
 .main {
@@ -498,6 +508,8 @@ body {
       .todo-list__icon,
       .todo-list__icon--done {
         border-radius: 10rem;
+        width: 3.8rem;
+        height: 3.8rem;
       }
 
       .todo-list__icon {

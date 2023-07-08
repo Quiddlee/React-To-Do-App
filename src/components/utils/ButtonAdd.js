@@ -15,6 +15,7 @@ export default function ButtonAdd({
         isOpen ? '' : 'hidden hidden--list'
       }`}>
       <svg
+        className="button--add__icon"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
