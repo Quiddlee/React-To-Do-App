@@ -139,6 +139,45 @@ body {
   }
 }
 
+@keyframes to-do-deleted {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    translate: -100% 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-edit-todo {
+  0% {
+    scale: 0;
+  }
+
+  40% {
+    scale:0
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes fade-in-delete-todo {
+  0% {
+    scale: 0;
+  }
+
+  80% {
+    scale:0
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
 .strike {
   position: relative;
 
@@ -356,6 +395,7 @@ body {
 
         .todo-list__item__delete {
           margin-left: auto;
+          animation: fade-in-delete-todo .6s cubic-bezier(.21,.62,.34,1.98);
         }
 
         .todo-list__item__edit {
@@ -365,6 +405,8 @@ body {
           background-color: inherit;
           font: inherit;
           outline: none;
+
+          animation: fade-in-edit-todo .5s cubic-bezier(.21,.62,.34,1.28);
         }
 
         .todo-list__item__content {
@@ -388,6 +430,10 @@ body {
             }
           }
         }
+      }
+
+      .todo-list__item--deleted {
+        animation: to-do-deleted .5s cubic-bezier(.25,.84,.47,1.02);
       }
 
       .todo-list__btn {

@@ -12,14 +12,24 @@ export default function TodoListItem({
   onMarkDoneTodo,
 }) {
   const [todoContent, setTodoContent] = useState(children);
+  const [isDeleteAnimation, setIsDeleteAnimation] = useState(false);
 
   function handleEnterKeyDown(e) {
     if (e.key !== 'Enter') return;
     e.target.blur();
   }
 
+  function handleDeleteTodoAfterAnimation(e) {
+    if (e.nativeEvent.animationName.trim() === 'to-do-deleted')
+      onDeleteTodoItem(listId, todoId);
+  }
+
   return (
-    <li className="todo-list__item">
+    <li
+      onAnimationEnd={handleDeleteTodoAfterAnimation}
+      className={`todo-list__item ${
+        isDeleteAnimation ? 'todo-list__item--deleted' : ''
+      }`}>
       <TodoListItemBtn
         onMarkDoneTodo={onMarkDoneTodo}
         isDone={isDone}
@@ -42,7 +52,7 @@ export default function TodoListItem({
       />
       <Button
         className="todo-list__item__delete"
-        onClick={onDeleteTodoItem.bind(null, listId, todoId)}>
+        onClick={() => setIsDeleteAnimation(!isDeleteAnimation)}>
         -
       </Button>
     </li>
