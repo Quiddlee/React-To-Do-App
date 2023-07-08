@@ -37,7 +37,7 @@ export const INITIAL_LISTS = [
       {
         id: 1,
         isDone: false,
-        content: 'Banana',
+        content: 'Bananas',
       },
       {
         id: 2,
