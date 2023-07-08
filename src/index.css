@@ -178,6 +178,42 @@ body {
   }
 }
 
+@keyframes sort-btn-click1 {
+  0% {
+    translate: 0;
+  }
+
+  50% {
+    translate: 0 -5%;
+  }
+
+  100% {
+    translate: 0;
+  }
+}
+
+@keyframes sort-btn-click2 {
+  0% {
+    translate: 0;
+  }
+
+  50% {
+    translate: 0 5%;
+  }
+
+  100% {
+    translate: 0;
+  }
+}
+
+.sort-btn--active .sort-btn__first-arrow {
+  animation: sort-btn-click1 .3s;
+}
+
+.sort-btn--active .sort-btn__second-arrow {
+  animation: sort-btn-click2 .3s;
+}
+
 .strike {
   position: relative;
 
